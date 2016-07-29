@@ -14,7 +14,7 @@ Apicación simple que integra Spring con AngularJS utilizando lo siguiente:
 - Se utilizan Base de datos y servidor embebidos a modo de ejemplo: H2 y Tomcat.
 
 
-- Para la creación de informes se utiliza JasperReports. Se ha configurado el pom para que cree los ficheros /src/main/resources/static/reports/*.jrxml y genere los /SpringAngularJS/src/main/webapp/jasper/*.jasper. Para ello basta con ejecutar mvn generate-resources.
+- Para la creación de informes se utiliza JasperReports. Se ha configurado el pom para que a partir de los ficheros /src/main/resources/static/reports/*.jrxml y genere los /src/main/webapp/jasper/*.jasper. Para ello basta con ejecutar mvn generate-resources.
 
 
 - La gestión de dependencias se realiza con: Maven y bower.
@@ -37,7 +37,7 @@ Instalación
 	a- se necesita tener instalado node.js (https://nodejs.org/)
 	b- se necesita también tener instalado git (https://git-scm.com/download/win)
 	c- instalamos bower con: npm install -g bower
-	d- finalmente ejecutando "bower install" en el proyecto nos colocara en el directorio /SpringAngularJS/src/main/resources/static/bower_components/ las versiones de las librerías indicadas en el bower.json.
+	d- finalmente ejecutando "bower install" en el proyecto nos colocara en el directorio /src/main/resources/static/bower_components las versiones de las librerías indicadas en el bower.json.
 	
 	
 	
