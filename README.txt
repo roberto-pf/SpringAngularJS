@@ -20,7 +20,9 @@ Simple application to integrate Spring with AngularJS using the following:
 - Dependency management is done with: Maven y bower.
 
 
+
 Installation
+============
 1- Install maven (used version 3.0.5)
 2- Install the wraper of maven for spring-boot: mvn -N io.takari:maven:wrapper
 3- It can be run in several ways:
