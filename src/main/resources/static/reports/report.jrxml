@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport language="java" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="in" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="c5a64c7f-76ff-4fc8-a83c-ed7ed4dc5911">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontSize="26"/>
+	<style name="Head" fontSize="12"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="country" class="java.lang.String"/>
+	<group name="Header">
+		<groupHeader>
+			<band height="45">
+				<staticText>
+					<reportElement style="Title" x="190" y="0" width="188" height="40" uuid="e1436822-d2d2-440a-9c25-0a9ac6365e93"/>
+					<text><![CDATA[City report]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="username_group">
+		<groupHeader>
+			<band height="22" splitType="Stretch">
+				<staticText>
+					<reportElement style="Head" x="70" y="0" width="150" height="20" uuid="ade630c9-56dc-4d10-a721-382c68463d96"/>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Head" x="230" y="0" width="148" height="20" uuid="dcaf072c-9b74-48c8-919b-3835d5aad124"/>
+					<text><![CDATA[Country]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="10" splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="150" height="20" uuid="3520945b-4f6f-454e-9c39-86e8b854c0ea"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="148" height="20" uuid="3a8ba375-5af6-425a-8698-194a5266cdd3"/>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="12" width="555" height="1" uuid="9e849ba1-0f7e-4307-9295-50bd5a988ba6"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css" />
+</head>
+<body>
+
+	<div th:replace="fragments/header :: headerbar(logout=false)"></div>
+
+
+	<div class="container">
+		<div class="row" style="min-height: 50px;"></div>
+		
+		<div class="row">
+
+			<div id="login-overlay" class="modal-dialog">
+				<div class="modal-content">
+
+					<div class=" modal-header container-fluid">
+						<div class="row-fluid">
+							<div class="offset1 span8 pull-right">
+								<img src="/img/logo_spring.png" width="70" />
+							</div>
+							<br />
+							<h2 class="modal-title" id="myModalLabel" style="text-align: center;" th:text="#{login.text}"></h2>
+						</div>
+					</div>
+
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="well">
+									<form name="loginForm" th:action="@{/login}" method="post" novalidate="novalidate">
+										<div class="form-group">
+											<label for="username" class="control-label" th:text="#{login.userName}"></label> <input
+												type="text" class="form-control" maxlength="20" name="username" id="username" value=""
+												th:title="#{login.userName.enter}" th:placeholder="#{login.userName}"
+											/> <span class="help-block"></span>
+										</div>
+										<div class="form-group">
+											<label for="password" class="control-label" th:text="#{login.password}"></label> <input
+												type="password" class="form-control" maxlength="20" name="password" id="password"
+												value="" th:title="#{login.password.enter}" th:placeholder="#{login.password}"
+											/> <span class="help-block"></span>
+										</div>
+										<button type="submit" class="btn btn-success btn-block" th:text="#{button.send}"></button>
+									</form>
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<p class="lead" th:text="#{login.message.data.test}"></p>
+								<ul class="list-unstyled" style="line-height: 2">
+									<li><span class="fa fa-check text-success"></span> <span th:text="#{login.userName}"></span>:
+										<strong><span class="text-success" th:text="#{login.data.user.test}"></span></strong></li>
+									<li><span class="fa fa-check text-success"></span> <span th:text="#{login.password}"></span>:
+										<strong><span class="text-success" th:text="#{login.data.password.test}"></span></strong></li>
+									<li><hr /></li>
+									<li th:if="${param.error}" class="text-danger"><strong><span class="fa fa-close"></span> <span
+										th:text="#{login.error.invalid.login}" class=""
+									></span></strong></li>
+									<li th:if="${param.logout}" class="text-danger"><strong><span class="fa fa-close"></span> <span
+										th:text="#{login.error.logout}"
+									></span></strong></li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

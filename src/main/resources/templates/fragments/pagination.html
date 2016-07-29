@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<!-- Pagination Bar -->
+	<div  class="row-fluid" th:fragment='paginationbar'>
+		<div class="offset1 span8 pull-right">
+			<ul class='pagination pagination-centered'>
+				<li th:class="${page.firstPage}?'disabled':''"><span th:if='${page.firstPage}'>← </span><span
+					th:text="#{button.first}"  th:if='${page.firstPage}'
+				></span> <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>← <span
+						th:text="#{button.first}"
+					></span></a></li>
+				<li th:class="${page.hasPreviousPage}? '' : 'disabled'"><span
+					th:if='${not page.hasPreviousPage}'
+				>«</span> <a th:if='${page.hasPreviousPage}'
+					th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'
+				>«</a></li>
+				<li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''"><span
+					th:if='${item.current}' th:text='${item.number}'
+				>1</span> <a th:if='${not item.current}'
+					th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'
+				><span th:text='${item.number}'>1</span></a></li>
+				<li th:class="${page.hasNextPage}? '' : 'disabled'"><span th:if='${not page.hasNextPage}'>»</span>
+					<a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}'
+					title='Go to next page'
+				>»</a></li>
+				<li th:class="${page.lastPage}? 'disabled' : ''"><span th:text="#{button.last}" th:if='${page.lastPage}'></span><span
+					th:if='${page.lastPage}'
+				> →</span> <a th:if='${not page.lastPage}'
+					th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'
+				><span th:text="#{button.last}"></span> →</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

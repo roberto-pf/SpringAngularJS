@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css" />
+
+<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/app/list.js"></script>
+
+</head>
+<body id="initBody">
+
+	<div th:replace="fragments/header :: headerbar(logout=true)"></div>
+
+	<div class="container">
+		<div class="row" style="min-height: 60px;"></div>
+
+		<div class="row" th:if="${successMessage!=''}">
+			<div class="alert alert-success" role="alert" th:text="${successMessage}"></div>
+		</div>
+		<div class="row" th:if="${dangerMessage!=''}">
+			<div class="alert alert-danger" role="alert" th:text="${dangerMessage}"></div>
+		</div>
+		
+		
+		<div class="row-fluid">
+			<div class="offset1 span8 pull-right">
+				<div class="buttons-head">
+					<button type="button" class="btn btn-primary" formtarget="_blank"
+						onClick="parent.location='/city/new'" th:text="#{button.new}"
+					></button>
+				</div>
+			</div>
+
+			<h2 th:text="#{city.gestion}"></h2>
+		</div>
+
+		<hr />
+		<div class="row">
+			<div th:if="${not #lists.isEmpty(items)}">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th th:text="#{city.name}"></th>
+							<th th:text="#{city.state}"></th>
+							<th th:text="#{city.country}"></th>
+							<th th:text="#{button.view}"></th>
+							<th th:text="#{button.edit}"></th>
+							<th th:text="#{button.remove}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="row : ${items}">
+							<td th:text="${row.name}"></td>
+							<td th:text="${row.state}"></td>
+							<td th:text="${row.country}"></td>
+							<td><a th:href="${'/city/' + row.id}" th:title="#{city.view}"><strong><span
+										class="fa fa-search text-info"
+									></span></strong></a></td>
+							<td><a th:href="${'/city/edit/' + row.id}" th:title="#{city.edit}"><strong><span
+										class="fa fa-edit text-info"
+									></span></strong></a></td>
+							<td><a data-toggle="modal" data-target=".bs-confirm-modal-lg" class="removeItem"
+							 th:rel="${'/city/delete/' + row.id}" href="#" th:title="#{city.remove}"><strong><span
+										class="fa fa-trash-o text-info"
+									></span></strong></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+			<div th:replace="fragments/pagination :: paginationbar"></div>
+
+			<div th:replace="fragments/confirm :: confirmDialog(question=#{city.question.remove})"></div>
+
+
+		</div>
+	</div>
+</body>
+
+</html>

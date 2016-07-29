@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head lang="es">
+    	<meta charset="UTF-8" />
+        <title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- Header Bar -->
+	<div class="row  navbar navbar-default" th:fragment='collapsedbar(title)'>
+		<div class="col-md-11 navbar-brand" th:text="${title}"></div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default navbar-brand pull-right"
+				ng-click="isCollapsed = !isCollapsed"
+			>
+				<strong><span class="glyphicon glyphicon-plus" ng-if="isCollapsed"></span></strong> <strong><span
+					class="glyphicon glyphicon-minus" ng-if="!isCollapsed"
+				></span></strong>
+			</button>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+	"name": "ng-spring-boot",
+	"dependencies": {
+		"angular": "~1.5.8",
+		"angular-resource": "~1.5.8",
+		"angular-messages": "~1.5.8",
+		"angular-route": "~1.5.8",
+		"angular-animate": "~1.5.8",
+		"angular-bootstrap": "~2.0.0",
+		"angular-bootstrap-show-errors" : "~2.0.0",
+		"angular-block-ui": "0.2.2",
+		"bootstrap": "~3.3.6",
+		"fontawesome": "~4.2.0",
+		"jquery": "3.1.0"
+	}
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head lang="es">
+    	<meta charset="UTF-8" />
+        <title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- Header Bar -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inner" th:fragment='headerbar(logout)'>
+		<div class="container">
+			<div class="row">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav">
+					<li><strong><a class="navbar-brand" role="button" href="/"
+						th:text="#{init.welcome}"> </a></strong></li>
+					<li><a href="/city/list" class="">Demo</a></li>
+					<li><a href="/reportSample" class="">Report Sample</a></li>
+					<li th:if="${logout}"><a href="/logout" class="">Logout</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</header>
+
+
+</body>
+
+</html>

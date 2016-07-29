@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- footer -->
+	<footer th:fragment='footerFgmt'>
+		<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+		<!-- 
+	<script type="text/javascript"
+		src="./../bower_components/angular-resource/angular-resource.min.js"></script>
+		-->
+		<script type="text/javascript" src="/bower_components/angular-messages/angular-messages.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-bootstrap-show-errors/src/showErrors.min.js"></script>
+	
+	
+		<script type="text/javascript" src="/app/app.js"></script>
+		
+		<!-- Controllers y Servicios personalizados -->
+		<script type="text/javascript" src="/app/services/cityService.js" th:if='${controller=="city"}'></script>
+		<script type="text/javascript" src="/app/controllers/cityController.js" th:if='${controller=="city"}'></script>
+		<script type="text/javascript" src="/app/validation/cityValidation.js" th:if='${controller=="city"}'></script>
+
+	</footer>
+
+</body>
+
+</html>

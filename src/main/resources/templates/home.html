@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" ng-app="ui.bootstrap.home"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/bower_components/angular-block-ui/dist/angular-block-ui.min.css" />
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+	<div>
+		<div th:replace="fragments/header :: headerbar(logout=false)"></div>
+
+
+		<div class="container" ng-controller="AccordionHomeCtrl">
+			<div class="row" style="min-height: 75px;"></div>
+			<div class="row">
+				<uib-accordion close-others="oneAtATime">
+				<div uib-accordion-group="uib-accordion-group" class="panel-danger">
+					<uib-accordion-heading th:text="#{init.description.1}"> </uib-accordion-heading>
+
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.jpa}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.jpa.text}"></span>
+						<div>
+							<a href="http://docs.spring.io/spring-data/jpa/docs/current/reference/html/" target="_blank"
+								th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.rest}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.rest.text}"></span>
+						<div>
+							<a href="http://docs.spring.io/spring-data/rest/docs/current/reference/html/" target="_blank"
+								th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.hateoas}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.hateoas.text}"></span>
+						<div>
+							<a href="http://docs.spring.io/spring-hateoas/docs/current/reference/html/" target="_blank"
+								th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.security}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.security.text}"></span>
+						<div>
+							<a
+								href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-security"
+								target="_blank" th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.mvc}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.mvc.text}"></span>
+						<div>
+							<a href="https://spring.io/guides/gs/serving-web-content/" target="_blank"
+								th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.thymeleaf}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.thymeleaf.text}"></span>
+						<div>
+							<a href="http://www.thymeleaf.org/documentation.html" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.angularjs}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.angularjs.text}"></span>
+						<div>
+							<a href="https://docs.angularjs.org/tutorial" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.bootstrap}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.bootstrap.text}"></span>
+						<div>
+							Boostrap: <a href="http://getbootstrap.com/css/" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+						<div>
+							Angular-ui: <a href="https://angular-ui.github.io/bootstrap/" target="_blank"
+								th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+						<div>
+							Font Awesome: <a href="http://fontawesome.io/icons/" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+						<div>
+							Show Errors: <a href="https://github.com/paulyoder/angular-bootstrap-show-errors" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.1.junit}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.1.junit.text}"></span>
+						<div>
+							<a href="https://github.com/junit-team/junit4/blob/master/doc/ReleaseNotes4.12.md"
+								target="_blank" th:text="#{button.doc}" th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+				</div>
+				</uib-accordion>
+
+
+				<uib-accordion close-others="oneAtATime">
+				<div uib-accordion-group="uib-accordion-group" class="panel-danger">
+					<uib-accordion-heading th:text="#{init.description.2}"> </uib-accordion-heading>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.2.h2}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.2.h2.text}"></span>
+						<div>
+							<a href="http://www.h2database.com/html/main.html" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.2.tomcat}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.2.tomcat.text}"></span>
+						<div>
+							<a href="http://tomcat.apache.org/" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+				</div>
+				</uib-accordion>
+
+
+				<uib-accordion close-others="oneAtATime">
+				<div uib-accordion-group="uib-accordion-group" class="panel-danger">
+					<uib-accordion-heading th:text="#{init.description.3}"> </uib-accordion-heading>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.3.jasper}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.3.jasper.text}"></span>
+						<div>
+							<a href="http://community.jaspersoft.com/" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+				</div>
+				</uib-accordion>
+
+
+				<uib-accordion close-others="oneAtATime">
+				<div uib-accordion-group="uib-accordion-group" class="panel-danger">
+					<uib-accordion-heading th:text="#{init.description.4}"> </uib-accordion-heading>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.4.maven}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.4.maven.text}"></span>
+						<div>
+							<a href="https://maven.apache.org/" target="_blank" th:text="#{button.doc}"
+								th:title="#{message.doc}"
+							></a>
+						</div>
+					</div>
+
+					<div uib-accordion-group="uib-accordion-group" class="panel-default" is-open="status.open">
+						<uib-accordion-heading th:text="#{init.description.4.bower}"> <i
+							class="pull-right glyphicon"
+							ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"
+						></i> </uib-accordion-heading>
+						<span th:text="#{init.description.4.bower.text}"></span>
+						<div>
+							<a href="https://bower.io/" target="_blank" th:text="#{button.doc}" th:title="#{message.doc}"></a>
+						</div>
+					</div>
+
+				</div>
+				</uib-accordion>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+
+	<!-- 
+	<script type="text/javascript"
+		src="./../bower_components/angular-resource/angular-resource.min.js"></script>
+		-->
+	<script type="text/javascript" src="/bower_components/angular-messages/angular-messages.min.js"></script>
+	<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript"
+		src="/bower_components/angular-block-ui/dist/angular-block-ui.min.js"
+	></script>
+	<!-- 
+	<script type="text/javascript"
+		src="./../bower_components/lodash/dist/lodash.min.js"></script>
+		-->
+	<script type="text/javascript" src="/app/app.js"></script>
+	<script type="text/javascript" src="/app/controllers/homeController.js"></script>
+
+</body>
+</html>
