@@ -2,13 +2,13 @@ Apicación simple que integra Spring con AngularJS utilizando lo siguiente:
 
 
 - Para la configuración de Spring se ha utilizado Spring Boot junto con los siguientes módulos
-	1-	Spring Data JPA ->  como capa de persistencia.
-	2-	Spring Data REST con Spring HATEOAS ->  para la capa de servicios rest con los que interactuará AngularJS.
-	3-	Spring Security ->  para la Autenticación y Autorización de la aplicación.
-	4-	Spring MVC con Thymeleaf ->  se utiliza para gestionar principalmente los listados de consulta, así como todas las vistas que no tienen formularios.
-	5-	AngularJS ->  se utiliza para las vistas de los formularios de detalles.
-	6-	Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors ->  para el diseño y maquetación del front end.
-	7-	JUnit ->  pruebas unitarias.
+	1- Spring Data JPA ->  como capa de persistencia.
+	2- Spring Data REST con Spring HATEOAS ->  para la capa de servicios rest con los que interactuará AngularJS.
+	3- Spring Security ->  para la Autenticación y Autorización de la aplicación.
+	4- Spring MVC con Thymeleaf ->  se utiliza para gestionar principalmente los listados de consulta, así como todas las vistas que no tienen formularios.
+	5- AngularJS ->  se utiliza para las vistas de los formularios de detalles.
+	6- Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors ->  para el diseño y maquetación del front end.
+	7- JUnit ->  pruebas unitarias.
 
 	
 - Se utilizan Base de datos y servidor embebidos a modo de ejemplo: H2 y Tomcat.

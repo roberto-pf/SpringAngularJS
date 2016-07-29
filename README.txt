@@ -2,13 +2,13 @@ Simple application to integrate Spring with AngularJS using the following:
 
 
 - Spring has been configured with Spring Boot with the following modules
-	1-	Spring Data JPA ->  as persistence layer.
-	2-	Spring Data REST with Spring HATEOAS ->  for Rest Services layer that interacts with AngularJS.
-	3-	Spring Security ->  for Authentication and Authorization Application.
-	4-	Spring MVC con Thymeleaf ->  mainly it used to manage the lists of consultation and all views that do not have forms.
-	5-	AngularJS ->  It is used to view the detail forms.
-	6-	Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors ->  for the design and layout of the front end.
-	7-	JUnit ->  unit tests.
+	1- Spring Data JPA ->  as persistence layer.
+	2- Spring Data REST with Spring HATEOAS ->  for Rest Services layer that interacts with AngularJS.
+	3- Spring Security ->  for Authentication and Authorization Application.
+	4- Spring MVC con Thymeleaf ->  mainly it used to manage the lists of consultation and all views that do not have forms.
+	5- AngularJS ->  It is used to view the detail forms.
+	6- Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors ->  for the design and layout of the front end.
+	7- JUnit ->  unit tests.
 
 	
 - Database server and embedded are used for example: H2 y Tomcat.
