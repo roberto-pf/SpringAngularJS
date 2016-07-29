@@ -2,13 +2,13 @@ Apicación simple que integra Spring con AngularJS utilizando lo siguiente:
 
 
 - Para la configuración de Spring se ha utilizado Spring Boot junto con los siguientes módulos
-	1-	Spring Data JPA	->	como capa de persistencia.
-	2-	Spring Data REST con Spring HATEOAS	->	para la capa de servicios rest con los que interactuará AngularJS.
-	3-	Spring Security	->	para la Autenticación y Autorización de la aplicación.
-	4-	Spring MVC con Thymeleaf	->	se utiliza para gestionar principalmente los listados de consulta, así como todas las vistas que no tienen formularios.
-	5-	AngularJS	->	se utiliza para las vistas de los formularios de detalles.
-	6-	Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors	->	para el diseño y maquetación del front end.
-	7-	JUnit	->	pruebas unitarias.
+	1-	Spring Data JPA ->  como capa de persistencia.
+	2-	Spring Data REST con Spring HATEOAS ->  para la capa de servicios rest con los que interactuará AngularJS.
+	3-	Spring Security ->  para la Autenticación y Autorización de la aplicación.
+	4-	Spring MVC con Thymeleaf ->  se utiliza para gestionar principalmente los listados de consulta, así como todas las vistas que no tienen formularios.
+	5-	AngularJS ->  se utiliza para las vistas de los formularios de detalles.
+	6-	Bootstrap + Angular-ui + Font Awesome + Angular-Show-Errors ->  para el diseño y maquetación del front end.
+	7-	JUnit ->  pruebas unitarias.
 
 	
 - Se utilizan Base de datos y servidor embebidos a modo de ejemplo: H2 y Tomcat.
@@ -20,24 +20,26 @@ Apicación simple que integra Spring con AngularJS utilizando lo siguiente:
 - La gestión de dependencias se realiza con: Maven y bower.
 
 
+
 Instalación
+===========
 1- Instalar maven (utilizada la 3.0.5)
 2- Instalar el wraper de maven para spring-boot: mvn -N io.takari:maven:wrapper
 3- Se puede ejecutar de varias formas:
 	Con maven:	mvn spring-boot:run. 
 	ó
-	Construyendo el jar:		mvn clean package 
-	Y haciéndolo correr con:	java -jar target/springangularjs-0.0.1-SNAPSHOT.jar
+	Construyendo el jar:      mvn clean package 
+	Y haciéndolo correr con:  java -jar target/springangularjs-0.0.1-SNAPSHOT.jar
 
 4- Si todo va bien la aplicación correrá en: http://localhost:8080/
 	
 	
 4- Copiar proyecto e importarlo al eclipse como proyecto de maven.
 5- Recordar que para modificar las librerías de js es necesario bower. Para ello:
-	a- se necesita tener instalado node.js (https://nodejs.org/)
-	b- se necesita también tener instalado git (https://git-scm.com/download/win)
-	c- instalamos bower con: npm install -g bower
-	d- finalmente ejecutando "bower install" en el proyecto nos colocara en el directorio /src/main/resources/static/bower_components las versiones de las librerías indicadas en el bower.json.
+    a- se necesita tener instalado node.js (https://nodejs.org/)
+    b- se necesita también tener instalado git (https://git-scm.com/download/win)
+    c- instalamos bower con: npm install -g bower
+    d- finalmente ejecutando "bower install" en el proyecto nos colocara en el directorio /src/main/resources/static/bower_components las versiones de las librerías indicadas en el bower.json.
 	
 	
 	
