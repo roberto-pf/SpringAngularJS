@@ -2,6 +2,7 @@ package es.com.disastercode.springangularjs.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,12 @@ public class SampleController extends CrudController<CityEntity> {
 	public String getItemsName(){
 		return "cities";
 	}
+	public String getOrderByDefault(){
+		return "name";
+	}
+	public String getOrderModeDefault(){
+		return "asc";
+	}
 
 
     @Override
@@ -43,10 +50,34 @@ public class SampleController extends CrudController<CityEntity> {
         uiModel.addAttribute("page", pageNew);
         uiModel.addAttribute("items", pageNew.getContent());
         uiModel.addAttribute("controller", "city");
+        uiModel.addAttribute("criteria", new CitySearchCriteria());
         
         makeMessage(uiModel, request);
         return "city/cities";
     }
+
+	@Override
+	public String listItemsFilter(Model uiModel, Pageable page, HttpServletRequest request) {
+    	CitySearchCriteria criteria = new CitySearchCriteria();
+    	criteria.set(request);
+    	String direction = getOrderModeDefault();
+    	if(StringUtils.isNotBlank( criteria.getOrderMode() ))
+    		direction = criteria.getOrderMode();
+    	
+    	String fieldName = getOrderByDefault();
+    	if(StringUtils.isNotBlank( criteria.getOrderBy() ))
+    		fieldName = criteria.getOrderBy();
+    	
+    	page = createPageRequest(page, direction, fieldName);
+        PageWrapper<CityEntity> pageNew = new PageWrapper<CityEntity> (cityService.findCities(criteria, page), "/city/list");
+        uiModel.addAttribute("page", pageNew);
+        uiModel.addAttribute("items", pageNew.getContent());
+        uiModel.addAttribute("controller", "city");
+        uiModel.addAttribute("criteria", criteria);
+        
+        makeMessage(uiModel, request);
+        return "city/cities";
+	}
     
     
     

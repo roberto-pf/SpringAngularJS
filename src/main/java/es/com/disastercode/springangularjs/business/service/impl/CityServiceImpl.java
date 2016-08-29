@@ -28,17 +28,8 @@ public class CityServiceImpl extends CrudServiceImpl<CityEntity> implements City
 
 	@Override
 	public Page<CityEntity> findCities(CitySearchCriteria criteria, Pageable pageable) {
-//		Assert.notNull(criteria, "Criteria must not be null");
-		String name = criteria.getName();
-		String country = criteria.getCountry();
 
-		if (!StringUtils.hasLength(name)) {
-			return this.cityRepository.findAll(pageable);
-		}
-
-		return this.cityRepository
-				.findByNameContainingAndCountryContainingAllIgnoringCase(name.trim(),
-						country.trim(), pageable);
+		return this.cityRepository.findAll(CitySearchCriteria.search(criteria), pageable);	
 	}
 	
 	@Override

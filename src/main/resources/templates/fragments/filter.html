@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<!-- Pagination Bar -->
+	<div id="filterOperation" th:fragment='filterDialog(type)'>
+
+		<div class="modal fade bs-filter-modal-lg" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" th:text="#{button.filter}"></h4>
+					</div>
+					<form id="filterForm" th:action="'/springangularjs/'+${type}+'/list'" th:object="${criteria}" method="post">
+						<div class="modal-body">
+						
+							<input type="hidden" th:field="*{orderBy}"/>
+							<input type="hidden" th:field="*{orderMode}"/>
+							
+							<div th:if="${type=='city'}">
+								<div th:replace="city/criteria :: cityFilter"></div>
+							</div>
+							
+							
+							
+						</div>
+						<div class="modal-footer">
+
+							<button type="submit" class="btn btn-primary" th:text="#{button.search}"></button>
+							<button type="button" class="btn btn-warning" onclick="javascript:resetForm();" th:text="#{button.reset}"></button>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</body>
+
+</html>

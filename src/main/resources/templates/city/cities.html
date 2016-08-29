@@ -6,6 +6,7 @@
 <meta charset="UTF-8" />
 <title th:text="#{head.title}"></title>
 <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/springangularjs/app/css/app.css" />
 <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css" />
 
 <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -31,9 +32,16 @@
 		<div class="row-fluid">
 			<div class="offset1 span8 pull-right">
 				<div class="buttons-head">
-					<button type="button" class="btn btn-primary" formtarget="_blank"
-						onClick="parent.location='/city/new'" th:text="#{button.new}"
-					></button>
+					<ul class="nav nav-pills">
+						<li role="presentation" class="active btn-xs">
+							<a id="filterBtn3" href="#" th:text="#{button.search.generic}" data-toggle="modal"
+								data-target=".bs-filter-modal-lg" formtarget="_blank"></a>
+						</li>
+
+						<li role="presentation" class="active btn-xs"><a href="#" formtarget="_blank"
+							onClick="parent.location='/springangularjs/city/new'" th:text="#{button.new}"
+						></a></li>
+					</ul>
 				</div>
 			</div>
 
@@ -46,9 +54,18 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th th:text="#{city.name}"></th>
-							<th th:text="#{city.state}"></th>
-							<th th:text="#{city.country}"></th>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="name"></i>
+								&nbsp; <span th:text="#{city.field.name}"></span>
+							</th>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="state"></i>
+								&nbsp; <span th:text="#{city.field.state}"></span>
+							</th>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="country"></i>
+								&nbsp; <span th:text="#{city.field.country}"></span>
+							</th>
 							<th th:text="#{button.view}"></th>
 							<th th:text="#{button.edit}"></th>
 							<th th:text="#{button.remove}"></th>
@@ -80,6 +97,8 @@
 			<div th:replace="fragments/pagination :: paginationbar"></div>
 
 			<div th:replace="fragments/confirm :: confirmDialog(question=#{city.question.remove})"></div>
+			
+			<div th:replace="fragments/filter :: filterDialog(type=city)"></div>
 
 
 		</div>

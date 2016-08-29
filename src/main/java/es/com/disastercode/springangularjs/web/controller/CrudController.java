@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +24,18 @@ public abstract class CrudController<T> {
 	public abstract T getInstance();
 	public abstract String getItemName();
 	public abstract String getItemsName();
+	public abstract String getOrderByDefault();
+	public abstract String getOrderModeDefault();
 	
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
     public abstract String listItems(Model uiModel, Pageable page, HttpServletRequest request);
-    
+	
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
+    public abstract String listItemsFilter(Model uiModel, Pageable page, HttpServletRequest request);
+	
+
+
     protected void makeMessage(Model uiModel, HttpServletRequest request){
         String msg = "";
         if(request.getParameter("successMessage")!=null)
@@ -37,6 +46,15 @@ public abstract class CrudController<T> {
         if(request.getParameter("dangerMessage")!=null)
 	        msg = messageSource.getMessage(request.getParameter("dangerMessage").toString(),null,LocaleContextHolder.getLocale());
         uiModel.addAttribute("dangerMessage", msg);
+    }
+    
+    
+    protected Pageable createPageRequest(Pageable page, String direction, String fieldName) {
+    	if(direction.equals("asc")){
+    		return new PageRequest(page.getPageNumber(), page.getPageSize(), Sort.Direction.ASC, fieldName);
+    	}else{
+    		return new PageRequest(page.getPageNumber(), page.getPageSize(), Sort.Direction.DESC, fieldName);
+    	}
     }
     
     

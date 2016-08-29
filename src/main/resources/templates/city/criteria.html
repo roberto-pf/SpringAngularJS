@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title th:text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div id="filterCity" th:fragment='cityFilter'>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="clave" th:text="#{city.field.name}" class="control-label"></label> <input
+						type="text" maxlength="14" class="form-control" th:field="*{name}"
+					/>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+</body>
+
+</html>

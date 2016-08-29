@@ -16,6 +16,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
+import es.com.disastercode.springangularjs.web.filter.ParseFilter;
+
+
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
@@ -58,6 +61,11 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
-	
+	  @Bean
+	  public ParseFilter simpleFilter() {
+	    return new ParseFilter();
+	  }
+	  
+	  
 
 }

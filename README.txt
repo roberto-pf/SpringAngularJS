@@ -30,6 +30,10 @@ Installation
 	ó
 	Building the jar:  mvn clean package 
 	And running:       java -jar target/springangularjs-0.0.1-SNAPSHOT.jar
+	
+	Note: Rename the file data.sql the first time it is run.
+	Note 2: You may need to run mvn generate-resources for generated files *Entity_.java (of the org.hibernate.jpamodelgen) and for compiled reports.
+	
 
 4- If all goes well the application will run on: http://localhost:8080/
 	
