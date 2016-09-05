@@ -1,4 +1,4 @@
-Simple application to integrate Spring with AngularJS using the following:
+﻿Simple application to integrate Spring with AngularJS using the following:
 
 
 - Spring has been configured with Spring Boot with the following modules
@@ -43,7 +43,7 @@ Installation
     a- Install node.js (https://nodejs.org/)
     b- Install git (https://git-scm.com/download/win)
     c- Install bower con: npm install -g bower
-    d- Finally running "install bower" in the project we placed in the /src/main/resources/static/bower_components versions of the libraries listed in bower.json.
+    d- Finally running "bower install" in the project we placed in the /src/main/resources/static/bower_components versions of the libraries listed in bower.json.
 	
 	
 
